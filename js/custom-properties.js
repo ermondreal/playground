@@ -41,14 +41,15 @@ class UgButton extends HTMLElement {
   
       if (customization) {
         try {
-          const styles = JSON.parse(customization);
+          // Parse the styles in the new format
+          const styles = JSON.parse(customization.replace(/'/g, '"'));
           const anchor = this.shadowRoot.querySelector('a');
   
           // Append custom styles to the style tag with default font-size
           this.shadowRoot.querySelector('style').textContent += `
             a {
               background-color: ${styles['bg-color']} !important;
-              color: ${styles['text-color']} !important;
+              color: ${styles['text-color'] || '#fff'} !important;
               font-size: ${styles['font-size'] || 'inherit'} !important;
             }
           `;
@@ -59,7 +60,8 @@ class UgButton extends HTMLElement {
   
       if (hoverStyles) {
         try {
-          const hover = JSON.parse(hoverStyles);
+          // Parse the hover styles in the new format
+          const hover = JSON.parse(hoverStyles.replace(/'/g, '"'));
           const anchor = this.shadowRoot.querySelector('a');
   
           // Append hover styles to the style tag without font-size
@@ -93,3 +95,4 @@ class UgButton extends HTMLElement {
   
   // Define the custom element
   customElements.define('ug-button', UgButton);
+  
