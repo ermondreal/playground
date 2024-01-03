@@ -4,26 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom Button</title>
+  <style>
+    * {
+        font-family: 'Open Sans', sans-serif;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Example with customization and hover attributes -->
-  <ug-button customization='{"bg-color": "red", "text-color": "white", "font-size": "20px"}' hover='{"bg-color": "pink", "text-color": "black"}'>Click me</ug-button>
+  <ug-button
+    customization='{"bg-color": "red", "text-color": "white", "font-size": "20px"}'
+    hover='{"bg-color": "pink", "text-color": "black"}'
+    link="https://www.example.com"
+  >
+    Click me to go to example.com
+  </ug-button>
 
   <!-- Example without customization attribute -->
   <ug-button>Another Button</ug-button>
 
-  <!-- Load the script from the external URL at the bottom of the body -->
-  <script>
-    fetch('https://raw.githubusercontent.com/ermondreal/playground/main/js/custom-properties.js')
-      .then(response => response.text())
-      .then(scriptContent => {
-        const script = document.createElement('script');
-        script.textContent = scriptContent;
-        document.body.appendChild(script);
-      })
-      .catch(error => console.error('Failed to fetch script:', error));
-  </script>
-  
+  <script src="https://ermondreal.github.io/playground/js/custom-properties.js"></script>
 </body>
 </html>
