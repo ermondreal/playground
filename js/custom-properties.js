@@ -12,6 +12,7 @@ class UgButton extends HTMLElement {
     anchor.innerHTML = `
       <style>
         a {
+          display: inline-block;
           padding: 10px 20px;
           background-color: #3498db;
           color: #fff;
