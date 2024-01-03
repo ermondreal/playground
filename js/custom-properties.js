@@ -1,13 +1,15 @@
-class UgButton extends HTMLElement {
+// Async function to define the custom element
+async function defineCustomElement() {
+  class UgButton extends HTMLElement {
     constructor() {
       super();
-  
+
       // Create a shadow root
       const shadow = this.attachShadow({ mode: 'open' });
-  
+
       // Create a button element
       const button = document.createElement('button');
-  
+
       // Apply styles to the button using a separate style block
       button.innerHTML = `
         <style>
@@ -21,7 +23,7 @@ class UgButton extends HTMLElement {
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
           }
-  
+
           button:hover {
             background-color: #eee; /* Default background color on hover */
             color: #333; /* Default text color on hover */
@@ -29,21 +31,21 @@ class UgButton extends HTMLElement {
         </style>
         <slot></slot>
       `;
-  
+
       // Append the button to the shadow root
       shadow.appendChild(button);
     }
-  
+
     connectedCallback() {
       // Set custom styles if provided
       const customization = this.getAttribute('customization');
       const hoverStyles = this.getAttribute('hover');
-  
+
       if (customization) {
         try {
           const styles = JSON.parse(customization);
           const button = this.shadowRoot.querySelector('button');
-  
+
           // Append custom styles to the style tag with default font-size
           this.shadowRoot.querySelector('style').textContent += `
             button {
@@ -56,12 +58,12 @@ class UgButton extends HTMLElement {
           console.error('Invalid customization attribute:', error);
         }
       }
-  
+
       if (hoverStyles) {
         try {
           const hover = JSON.parse(hoverStyles);
           const button = this.shadowRoot.querySelector('button');
-  
+
           // Append hover styles to the style tag without font-size
           this.shadowRoot.querySelector('style').textContent += `
             button:hover {
@@ -75,7 +77,10 @@ class UgButton extends HTMLElement {
       }
     }
   }
-  
+
   // Define the custom element
   customElements.define('ug-button', UgButton);
-  
+}
+
+// Call the async function to define the custom element
+defineCustomElement();
