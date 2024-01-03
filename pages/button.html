@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom Button</title>
-
-  <!-- Load the script from the external URL with defer attribute -->
-  <script src="https://raw.githubusercontent.com/ermondreal/playground/main/js/custom-properties.js" defer></script>
 </head>
 <body>
 
@@ -15,5 +12,18 @@
 
   <!-- Example without customization attribute -->
   <ug-button>Another Button</ug-button>
+
+  <!-- Load the script from the external URL at the bottom of the body -->
+  <script>
+    fetch('https://raw.githubusercontent.com/ermondreal/playground/main/js/custom-properties.js')
+      .then(response => response.text())
+      .then(scriptContent => {
+        const script = document.createElement('script');
+        script.textContent = scriptContent;
+        document.body.appendChild(script);
+      })
+      .catch(error => console.error('Failed to fetch script:', error));
+  </script>
+  
 </body>
 </html>
