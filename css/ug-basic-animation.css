@@ -1,15 +1,15 @@
 /* BASIC ANIMATION */
-.ug-animated {
+.ug-animate {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     visibility: hidden;
 }
-.ug-animated.fadeInUp,
-.ug-animated.fadeInDown,
-.ug-animated.fadeInLeft,
-.ug-animated.fadeInRight {
+.ug-animate.fadeInUp,
+.ug-animate.fadeInDown,
+.ug-animate.fadeInLeft,
+.ug-animate.fadeInRight {
     visibility: visible;
 }
 @keyframes fadeInUp {

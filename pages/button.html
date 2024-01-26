@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Button</title>
-  <style>
-    * {
-        font-family: 'Open Sans', sans-serif;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Example with customization and hover attributes -->
-  <ug-button
-    customization="{'bg-color':'pink', 'padding':'15px', 'border':'2px solid #ccc', 'border-radius':'10px'}"
-    hover="{'bg-color': 'pink', 'text-color': 'black'}"
-    link="https://www.example.com"
-  >
-    Click me to go to example.com
-  </ug-button>
-
-  <!-- Example without customization attribute -->
-  <ug-button>Another Button</ug-button>
-
-  <script src="https://ermondreal.github.io/playground/js/custom-button.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Button</title>
+    <link rel="stylesheet" type="text/css" href="https://ermondreal.github.io/playground/css/ug-basic-animation.css">
+    <style>
+      * {
+          font-family: 'Open Sans', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    
+      <!-- Example with customization and hover attributes -->
+      <ug-button
+        customization="{'bg-color':'pink', 'padding':'15px', 'border':'2px solid #ccc', 'border-radius':'10px'}"
+        hover="{'bg-color': 'pink', 'text-color': 'black'}"
+        link="https://www.example.com"
+      >
+        Click me to go to example.com
+      </ug-button>
+    <span style="display: inline-block;" class="ug-animate" data-animation="fadeInRight">
+      <!-- Example without customization attribute -->
+      <ug-button>Another Button</ug-button>
+    </span>
+    <script src="https://ermondreal.github.io/playground/js/ug-button.js"></script>
+    <script src="https://ermondreal.github.io/playground/js/ug-basic-animation.js"></script>
+  </body>
 </html>

@@ -1,26 +1,27 @@
 var scrollLoad = function () {
-    if ($('.ug-animated')[0]) {
-        $('.ug-animated').each(function () {
-            var wH = $(window).height();
-            var sT = $(window).scrollTop();
-            var oT = $(this).offset().top;
+    var animateElements = document.querySelectorAll('.ug-animate');
+    if (animateElements.length > 0) {
+        animateElements.forEach(function (element) {
+            var wH = window.innerHeight;
+            var sT = window.scrollY;
+            var oT = element.offsetTop;
             var s = wH + sT - 10;
-            var fadeInUpAnim = $(this).attr('data-animation') == 'fadeInUp';
-            var fadeInDownAnim = $(this).attr('data-animation') == 'fadeInDown';
-            var fadeInLeftAnim = $(this).attr('data-animation') == 'fadeInLeft';
-            var fadeInRightAnim = $(this).attr('data-animation') == 'fadeInRight';
+            var fadeInUpAnim = element.getAttribute('data-animation') === 'fadeInUp';
+            var fadeInDownAnim = element.getAttribute('data-animation') === 'fadeInDown';
+            var fadeInLeftAnim = element.getAttribute('data-animation') === 'fadeInLeft';
+            var fadeInRightAnim = element.getAttribute('data-animation') === 'fadeInRight';
+
             if (s > oT && fadeInUpAnim) {
-                $(this).addClass('fadeInUp');
+                element.classList.add('fadeInUp');
             } else if (s > oT && fadeInDownAnim) {
-                $(this).addClass('fadeInDown');
+                element.classList.add('fadeInDown');
             } else if (s > oT && fadeInLeftAnim) {
-                $(this).addClass('fadeInLeft');
+                element.classList.add('fadeInLeft');
             } else if (s > oT && fadeInRightAnim) {
-                $(this).addClass('fadeInRight');
-            } else {
+                element.classList.add('fadeInRight');
             }
         });
     }
 };
 scrollLoad();
-$(window).scroll(scrollLoad);
+window.addEventListener('scroll', scrollLoad);
