@@ -8,8 +8,7 @@ var scrollLoad = function () {
             var oT = element.offsetTop;
             var tH = element.clientHeight;
             var animationType = element.getAttribute('data-animation');
-            // Adjust condition to check if at least half of the element is visible in the window
-            if (sT + wH > oT + tH * 0.5) {
+            if (sT + wH > oT + tH) { // add "* 0.5" to animate if 50% height of element is visible
                 switch (animationType) {
                     case 'fadeInUp':
                         element.classList.add('fadeInUp');
